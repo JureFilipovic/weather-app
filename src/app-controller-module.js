@@ -17,17 +17,6 @@ const appControllerModule = {
             throw error;
         }
     },
-
-    // async consoleLogInfo(location, unitsSystem) {
-    //     try {
-    //         const weatherData = await this.getWeatherData(location, unitsSystem);
-    //         for (let key in weatherData) {
-    //             console.log(key, weatherData[key]);
-    //         }
-    //     } catch (error) {
-    //         console.error("Error initializing app:", error)
-    //     }
-    // }
 }; 
 
 export default appControllerModule;
