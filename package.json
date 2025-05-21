@@ -2,7 +2,7 @@
   "name": "weather-app",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://jurefilipovic.github.io/javascript-template",
+  "homepage": "https://jurefilipovic.github.io/weather-app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --config webpack.dev.js",
@@ -24,6 +24,7 @@
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-prettier": "^5.2.6",
+    "gh-pages": "^6.3.0",
     "globals": "^16.0.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
