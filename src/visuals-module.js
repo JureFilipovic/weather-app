@@ -5,7 +5,7 @@ const iconMapper = {
   },
   "clear-night": {
     icon: "wi-night-clear",
-    background: "clear", // OR "clear-night" if you want separate night bg
+    background: "clear",
   },
   "partly-cloudy-day": {
     icon: "wi-day-cloudy",
@@ -15,32 +15,32 @@ const iconMapper = {
     icon: "wi-night-alt-cloudy",
     background: "cloudy",
   },
-  "cloudy": {
+  cloudy: {
     icon: "wi-cloudy",
     background: "cloudy",
   },
-  "wind": {
+  wind: {
     icon: "wi-strong-wind",
     background: "wind",
   },
-  "fog": {
+  fog: {
     icon: "wi-fog",
     background: "fog",
   },
-  "rain": {
+  rain: {
     icon: "wi-rain",
     background: "rain",
   },
-  "snow": {
+  snow: {
     icon: "wi-snow",
     background: "snow",
   },
 };
 
 export default function getWeatherVisuals(apiIconName) {
-    const visuals = iconMapper[apiIconName];
-    return {
-        iconClass: visuals?.icon || "wi-na",
-        background: visuals?.background || "default",
-    }
+  const visuals = iconMapper[apiIconName];
+  return {
+    iconClass: visuals?.icon || "wi-na",
+    background: visuals?.background || "default",
+  };
 }
