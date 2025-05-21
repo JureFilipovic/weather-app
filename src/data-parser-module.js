@@ -13,20 +13,17 @@ const dataParserModule = {
             throw new Error("Invalid weather data");
         }
         const localHourNow = getLocalTime(weatherData.tzoffset).getHours();
-        console.log(localHourNow);
         
         return {
             location: weatherData.resolvedAddress,
             description: weatherData.description,
-            current: {
-                temp: weatherData.days[0].hours[localHourNow].temp,
-                tempmax: weatherData.days[0].tempmax,
-                tempmin: weatherData.days[0].tempmin,
-                humidity: weatherData.days[0].hours[localHourNow].humidity,
-                conditions: weatherData.days[0].hours[localHourNow].conditions,
-                dailyDescription: weatherData.days[0].description,
-                icon: weatherData.days[0].hours[localHourNow].icon,
-            },
+            temp: weatherData.days[0].hours[localHourNow].temp,
+            tempmax: weatherData.days[0].tempmax,
+            tempmin: weatherData.days[0].tempmin,
+            humidity: weatherData.days[0].hours[localHourNow].humidity,
+            conditions: weatherData.days[0].hours[localHourNow].conditions,
+            dailyDescription: weatherData.days[0].description,
+            icon: weatherData.days[0].hours[localHourNow].icon,
             sunrise: weatherData.days[0].sunrise,
             sunset: weatherData.days[0].sunset,
         };
