@@ -45,6 +45,26 @@ const domControllerModule = {
       }
     });
 
+    input.addEventListener("keydown", async (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent form submission or other default actions
+
+            const location = input.value.trim();
+            if (location) {
+            try {
+                const weatherData = await appControllerModule.getWeatherData(location, this.unit);
+                errorDiv.style.display = "none";
+                errorDiv.textContent = "";
+                this.displayWeatherData(weatherData);
+            } catch (error) {
+                console.error("Error getting or displaying data", error);
+                errorDiv.textContent = "Location not found. Please try again.";
+                errorDiv.style.display = "block";
+            }
+            }
+        }
+    });
+
     const unitToggle = document.createElement("button");
     unitToggle.className = "unitToggle";
     unitToggle.textContent = "Switch to °F";
@@ -66,7 +86,7 @@ const domControllerModule = {
             location,
             this.unit,
           );
-          console.log(weatherData);
+          this.displayWeatherData(weatherData);
         } catch (error) {
           console.error("Error switching units", error);
         }
