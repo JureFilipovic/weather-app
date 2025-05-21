@@ -46,23 +46,26 @@ const domControllerModule = {
     });
 
     input.addEventListener("keydown", async (event) => {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Prevent form submission or other default actions
+      if (event.key === "Enter") {
+        event.preventDefault(); // Prevent form submission or other default actions
 
-            const location = input.value.trim();
-            if (location) {
-            try {
-                const weatherData = await appControllerModule.getWeatherData(location, this.unit);
-                errorDiv.style.display = "none";
-                errorDiv.textContent = "";
-                this.displayWeatherData(weatherData);
-            } catch (error) {
-                console.error("Error getting or displaying data", error);
-                errorDiv.textContent = "Location not found. Please try again.";
-                errorDiv.style.display = "block";
-            }
-            }
+        const location = input.value.trim();
+        if (location) {
+          try {
+            const weatherData = await appControllerModule.getWeatherData(
+              location,
+              this.unit,
+            );
+            errorDiv.style.display = "none";
+            errorDiv.textContent = "";
+            this.displayWeatherData(weatherData);
+          } catch (error) {
+            console.error("Error getting or displaying data", error);
+            errorDiv.textContent = "Location not found. Please try again.";
+            errorDiv.style.display = "block";
+          }
         }
+      }
     });
 
     const unitToggle = document.createElement("button");
